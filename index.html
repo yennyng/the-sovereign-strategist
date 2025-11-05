@@ -1,0 +1,208 @@
+<!--
+The Sovereign Strategist - Single-file static site (Yenny style)
+Generated: 2025-11-06
+
+How to use:
+1) Save this file as `index.html`.
+2) Preview locally: open index.html in your browser.
+3) To deploy to GitHub Pages or Netlify: create a repo, add this file, commit & push. See README section further down the page.
+
+This file contains:
+- Responsive reading layout optimized for mobile
+- "Yenny style" bilingual paragraphs (English first, Chinese after) separated by the delimiter line
+- Simple chapter navigation and a lightweight style system you can edit
+
+Enjoy ♥
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Sovereign Strategist — Notes on Power, Choice, and Quiet Strategy</title>
+  <meta name="description" content="The Sovereign Strategist — a bilingual, reflective storytelling project in Yenny style." />
+  <style>
+    :root{
+      --max-width:760px; --margin:20px; --accent:#2b2f6a; --muted:#5a5a5a; --bg:#fbfbfb; --card:#ffffff;
+      --serif: 'Georgia', 'Times New Roman', serif; --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:#111;font-family:var(--sans);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:18px}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    .brand{flex:1}
+    h1{margin:0;font-family:var(--serif);font-size:26px;line-height:1.05;color:var(--accent)}
+    .subtitle{margin-top:6px;color:var(--muted);font-size:13px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{background:transparent;border:1px solid #ddd;padding:6px 12px;border-radius:10px;font-size:13px;cursor:pointer}
+    .hero{background:linear-gradient(180deg, rgba(43,47,106,0.04), rgba(255,255,255,0.0));padding:14px;border-radius:12px;margin-bottom:18px}
+    main{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(9,10,25,0.04)}
+
+    /* Reading style — Yenny style */
+    .chapter{padding-bottom:10px}
+    .section{margin:18px 0;font-size:16px;line-height:1.75}
+    .en{display:block;font-weight:600}
+    .zh{display:block;margin-top:8px;color:var(--muted);font-size:15px}
+    .delimiter{display:block;text-align:center;margin:10px 0;color:#cfcfd1;letter-spacing:6px}
+    .cover-image{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-top:10px}
+
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small screens */
+    @media (max-width:480px){:root{--max-width:720px}
+      h1{font-size:20px}
+      .cover-image{height:160px}
+      .section{font-size:17px}
+    }
+
+    /* Author-only admin display (collapsed by default) */
+    details[open] summary{font-weight:600}
+    details .meta{background:#fff;padding:12px;border-radius:8px;margin-top:8px;border:1px dashed #eee}
+    .nav-chapters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chapter-card{padding:10px;border-radius:10px;border:1px solid #f0f0f0;background:#fff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>The Sovereign Strategist</h1>
+        <div class="subtitle">Notes on Power, Choice, and Quiet Strategy · 力量、选择与静默策略札记</div>
+      </div>
+      <nav>
+        <button class="btn" onclick="goTo('home')">Home</button>
+        <button class="btn" onclick="goTo('chap1')">Chapter 1</button>
+        <button class="btn" onclick="toggleReadMode()">Reader mode</button>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <strong>Short intro</strong>
+      <div style="color:var(--muted);margin-top:8px">A place for quiet strategy, small victories, and the notes that gather between decisions. 一个关于静默策略、小小胜利与存在于抉择之间笔记的栖所。</div>
+    </div>
+
+    <main id="page">
+      <!-- Home view (index) -->
+      <article id="home" class="view">
+        <img class="cover-image" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23f6f6fb'/><text x='50%' y='50%' font-size='36' font-family='Georgia' fill='%232b2f6a' dominant-baseline='middle' text-anchor='middle'>The Sovereign Strategist</text></svg>" alt="cover" />
+
+        <section class="section">
+          <span class="en">Welcome. This is a place where strategy meets gentle reflection — short notes, moments of choice, private experiments in being sovereign over the small parts of your day.</span>
+          <div class="delimiter">⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+          <span class="zh">欢迎来到这里。策略与温柔的自省在此相遇 —— 短笔记、选择的瞬间、以及一点点关于在日常中做自己主宰的实验。</span>
+        </section>
+
+        <section class="section">
+          <span class="en">Start reading the first chapter below, or return here when you want a quiet re-read.</span>
+          <div class="delimiter">⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+          <span class="zh">从下面开始阅读第一章，或者当你想要温柔重读时回到这里。</span>
+        </section>
+
+        <div class="nav-chapters">
+          <div class="chapter-card"><button class="btn" onclick="goTo('chap1')">Read Chapter 1</button></div>
+          <div class="chapter-card"><button class="btn" onclick="goTo('chap2')">Read Chapter 2 (placeholder)</button></div>
+        </div>
+
+      </article>
+
+      <!-- Chapter 1 -->
+      <article id="chap1" class="view" style="display:none">
+        <h2 style="margin-top:0;font-family:var(--serif);color:var(--accent)">Chapter 1 · The Quiet Choice</h2>
+
+        <div class="chapter">
+          <section class="section">
+            <span class="en">I once thought power was the loud kind — a voice that took the center and did not ask permission. But the most sustainable decisions have been the quiet ones, the ones I rehearsed in the margins of my notebook.</span>
+            <div class="delimiter">⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+            <span class="zh">我曾以为权力是那种喧闹的存在——占据中心、不需征求许可的声音。但真正可持续的决定，经常是那些静默的选择，是我在笔记边缘反复排练的小心思。</span>
+          </section>
+
+          <section class="section">
+            <span class="en">This chapter keeps small rituals: an hour of reading, a slow reply, a deliberate refusal. Each one is a strategy disguised as a habit.</span>
+            <div class="delimiter">⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+            <span class="zh">本章记着小小的仪式：一小时阅读、慢慢回覆、一次有意的拒绝。每个都是伪装成习惯的策略。</span>
+          </section>
+
+          <section class="section">
+            <span class="en">If you’re reading this on your phone: breathe. Let each screen be one paragraph. Let each paragraph be an island you can leave without guilt.</span>
+            <div class="delimiter">⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+            <span class="zh">如果你现在在手机上阅读：先深呼吸。让每一屏只是一段，让每段都像一座可安心离开的岛。</span>
+          </section>
+
+        </div>
+
+        <div style="margin-top:14px">
+          <button class="btn" onclick="goTo('home')">← Back to Home</button>
+          <button class="btn" onclick="goTo('chap2')">Next →</button>
+        </div>
+      </article>
+
+      <!-- Chapter 2 placeholder -->
+      <article id="chap2" class="view" style="display:none">
+        <h2 style="margin-top:0;font-family:var(--serif);color:var(--accent)">Chapter 2 · Maps of Intention</h2>
+        <div class="section">
+          <span class="en">(Placeholder) This space will hold sketches and small maps that trace how intention becomes practice.</span>
+          <div class="delimiter">⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+          <span class="zh">（占位）此处将放置草图与小地图，描绘意向如何化为实践。</span>
+        </div>
+        <div style="margin-top:14px">
+          <button class="btn" onclick="goTo('chap1')">← Prev</button>
+          <button class="btn" onclick="goTo('home')">Home</button>
+        </div>
+      </article>
+
+      <!-- Author / Deployment info (for you) -->
+      <details style="margin-top:18px">
+        <summary>Author / Deployment (click to expand)</summary>
+        <div class="meta">
+          <p style="margin:4px 0"><strong>Files included</strong>: This single-file site acts as <code>index.html</code>. You can split into /chapters/*.html and /assets/style.css later.</p>
+          <p style="margin:4px 0"><strong>Quick Git commands</strong> (run in a terminal):</p>
+          <pre style="background:#fafafa;padding:10px;border-radius:6px;border:1px solid #f0f0f0"># create repo locally
+mkdir the-sovereign-strategist && cd the-sovereign-strategist
+# copy this file as index.html into this folder
+git init
+git add index.html
+git commit -m "Initial site: index + chapter 1"
+# create repo on GitHub named the-sovereign-strategist, then:
+git remote add origin git@github.com:YOUR_USERNAME/the-sovereign-strategist.git
+git branch -M main
+git push -u origin main
+</pre>
+          <p style="margin:4px 0"><strong>Deploy on Netlify</strong>:</p>
+          <ol style="margin:6px 0 0 18px">
+            <li>Sign in to Netlify with GitHub and click "Add new site → Import from Git".</li>
+            <li>Select this repository and deploy. Netlify will publish the site and provide a subdomain.</li>
+          </ol>
+          <p style="margin:4px 0"><strong>Or deploy with GitHub Pages</strong> by placing this file on the main branch and enabling Pages in repo Settings &gt; Pages &gt; Deploy from branch.</p>
+          <p style="margin:4px 0;color:var(--muted)">Tip: Keep your master copy of the story in a `content/` folder as Markdown, then convert to static HTML later with a small build step (Eleventy/Hugo) if you want more automation.</p>
+        </div>
+      </details>
+
+    </main>
+
+    <footer>
+      <div>Made with care — Yenny style (English first, then 中文). ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯</div>
+    </footer>
+  </div>
+
+  <script>
+    function goTo(id){
+      document.querySelectorAll('.view').forEach(v=>v.style.display='none');
+      const el = document.getElementById(id);
+      if(el) el.style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    // Reader mode hides UI to make reading calmer
+    let reader = false;
+    function toggleReadMode(){
+      reader = !reader;
+      document.querySelector('header').style.display = reader ? 'none' : 'flex';
+      document.querySelector('nav').style.display = reader ? 'none' : 'flex';
+      document.querySelector('.hero').style.display = reader ? 'none' : 'block';
+      document.querySelector('footer').style.display = reader ? 'none' : 'block';
+    }
+
+    // initial view
+    goTo('home');
+  </script>
+</body>
+</html>
